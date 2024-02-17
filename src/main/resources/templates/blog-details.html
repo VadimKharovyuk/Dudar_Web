@@ -9,14 +9,15 @@
 <header th:insert ="blocks/header :: header"></header>
 
 <div class="container mt-5">
-    <h1> Блог сайта</h1>
 
-<div th:each="el : ${posts}" class="alert alert-info mt-2">
-    <h3 th:text="${el.getTitle()}"/>
-        <p th:text="${el.getAnons()}"/>
-        <a th:href="'/blog/'+${el.getId()}" class="btn btn-warning">Делальней</a>
+    <div th:each="el : ${post}" class="alert alert-info mt-2">
+        <h1 th:text="${el.getTitle()}"/>
+        <p th:text="${el.getFull_text()}"/>
+        <p th:text="${el.getViews()}"/>
+        <a th:href="'/blog/'+${el.getId()} + '/edit'" class="btn btn-warning">Редактировать</a>
+        <a th:href="'/blog/'+${el.getId()} + '/remove'" class="btn btn-warning">Удалить</a>
 
-</div>
+    </div>
 
 </div>
 
